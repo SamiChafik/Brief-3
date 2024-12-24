@@ -1,12 +1,11 @@
 public class Main {
-    static Menu menu = new Menu();
     static App app = new App();
 
     public static void main(String[] args){
         boolean exit = true;
         while (exit){
-            menu.menu();
-            switch (menu.choice()){
+            app.menu();
+            switch (app.choice()){
                 case 1 :
                     app.add();
                     break;
@@ -14,6 +13,7 @@ public class Main {
                     app.show();
                     break;
                 case 3 :
+                    app.find();
                     break;
                 case 4 :
                     break;

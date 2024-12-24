@@ -1,22 +1,31 @@
 public class Person {
-    String ID,Name,email,tel,password;
+    String ID,P_Name,F_Name,email,tel,password;
     int Age;
 
-    public Person(String ID,String name, int age, String tel, String email, String password) {
+    public Person(String ID,String p_name,String f_name, int age, String tel, String email, String password) {
         this.ID = ID;
-        this.Name = name;
+        this.P_Name = p_name;
+        this.F_Name = f_name;
         this.Age = age;
         this.tel = tel;
         this.email = email;
         this.password = password;
     }
 
-    public String getName() {
-        return Name;
+    public String getP_Name() {
+        return P_Name;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setP_Name(String p_Name) {
+        P_Name = p_Name;
+    }
+
+    public String getF_Name() {
+        return F_Name;
+    }
+
+    public void setF_Name(String f_Name) {
+        F_Name = f_Name;
     }
 
     public String getEmail() {
