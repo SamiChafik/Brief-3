@@ -90,6 +90,73 @@ public class App {
         }
     }
 
+    public void modify(){
+
+        if (users.isEmpty()){
+            System.out.print("there are no users !");
+            return;
+        }
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Entre user ID you want to modify : ");
+        String id = sc.nextLine();
+
+
+        for(User user : users) {
+            if (id.equals(user.getID())) {
+                System.out.println("== User found ==");
+                System.out.println(user);
+
+                System.out.println("what do you want to modify :");
+                System.out.println("1 - Personal Name");
+                System.out.println("2 - Family Name");
+                System.out.println("3 - Age");
+                System.out.println("4 - phone number");
+                System.out.println("5 - Email");
+                System.out.println("6 - Password");
+                System.out.println("0 - Return");
+                System.out.print("=> ");
+                int ch = sc.nextShort();
+                sc.nextLine();
+
+                switch (ch) {
+                    case 1:
+                        System.out.print("New personal name : ");
+                        user.setP_Name(sc.nextLine());
+                        System.out.println("Updated !");
+                        break;
+                    case 2:
+                        System.out.print("New Family name : ");
+                        user.setF_Name(sc.nextLine());
+                        System.out.println("Updated !");
+                        break;
+                    case 3:
+                        System.out.print("New age : ");
+                        user.setAge(sc.nextInt());
+                        System.out.println("Updated !");
+                        break;
+                    case 4:
+                        System.out.print("New phone number : ");
+                        user.setTel(sc.nextLine());
+                        System.out.println("Updated !");
+                        break;
+                    case 5:
+                        System.out.print("New Email : ");
+                        user.setEmail(sc.nextLine());
+                        System.out.println("Updated !");
+                        break;
+                    case 6:
+                        System.out.print("New password : ");
+                        user.setPassword(sc.nextLine());
+                        System.out.println("Updated !");
+                        break;
+                    case 0:
+                        break;
+                }
+            } else System.out.println("User doesnt exist !");
+        }
+    }
+
     public void delete(){
 
         if (users.isEmpty()){

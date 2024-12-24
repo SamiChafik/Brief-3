@@ -16,6 +16,7 @@ public class Main {
                     app.find();
                     break;
                 case 4 :
+                    app.modify();
                     break;
                 case 5 :
                     app.delete();
