@@ -1,14 +1,36 @@
 
 public class User extends Person {
-
-    enum Role {
-        ADMIN,
-        EMPLOYEE,
-        CLIENT
+    String email,password;
+    Role role;
+    public User(String ID, String p_name, String f_name, int age, String tel, String email, String password, Role role) {
+        super(ID, p_name, f_name, age, tel);
+        this.role = role;
+        this.email = email;
+        this.password = password;
     }
 
-    public User(String ID, String p_name, String f_name, int age, String tel, String email, String password) {
-        super(ID, p_name, f_name, age, tel, email, password);
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override
@@ -20,6 +42,8 @@ public class User extends Person {
                 "Age : " + Age + '\n' +
                 "User phone : " + tel + '\n' +
                 "Email : " + email + '\n' +
-                "password : " + password + '\n';
+                "password : " + password + '\n' +
+                "Role : " + role.getRole() + '\n'
+                ;
     }
 }
