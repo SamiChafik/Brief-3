@@ -5,20 +5,21 @@ public class App {
 
     static ArrayList<User> users = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
+    static Colors color = new Colors();
 
     public void menu(){
-        System.out.println("════════  Menu  ════════");
+        System.out.println(color.red+color.bold+"════════  Menu  ════════"+color.white);
         System.out.println("1 - create a user");
         System.out.println("2 - display users");
         System.out.println("3 - find a user");
         System.out.println("4 - modify a user");
         System.out.println("5 - delete a user");
         System.out.println("0 - exit");
-        System.out.println("════════ ══════ ════════");
+        System.out.println(color.red+"════════ ══════ ════════"+color.white);
     }
 
     public short choice(){
-        System.out.print("=> ");
+        System.out.print(color.blue+"=> "+color.white);
         Scanner sc = new Scanner(System.in);
         return sc.nextShort();
     }
@@ -36,12 +37,16 @@ public class App {
         sc.nextLine();
         System.out.print("User phone : ");
         String tel = sc.nextLine();
+        System.out.print("User role (Admin - Employee - client) : ");
+        String role = sc.nextLine();
         System.out.print("Email : ");
         String email = sc.nextLine();
         System.out.print("Password : ");
         String password = sc.nextLine();
 
-        users.add(new User(id, p_name, f_name, age, tel, email, password));
+
+        Role varRole = new Role(role);
+        users.add(new User(id, p_name, f_name, age, tel, email, password, varRole));
 
     }
 
@@ -111,9 +116,10 @@ public class App {
                 System.out.println("1 - Personal Name");
                 System.out.println("2 - Family Name");
                 System.out.println("3 - Age");
-                System.out.println("4 - phone number");
-                System.out.println("5 - Email");
-                System.out.println("6 - Password");
+                System.out.println("4 - Phone number");
+                System.out.println("5 - Role");
+                System.out.println("6 - Email");
+                System.out.println("7 - Password");
                 System.out.println("0 - Return");
                 System.out.print("=> ");
                 int ch = sc.nextShort();
@@ -140,12 +146,20 @@ public class App {
                         user.setTel(sc.nextLine());
                         System.out.println("Updated !");
                         break;
-                    case 5:
+                    case 5 :
+                        System.out.print("New Role : ");
+                        String role = sc.nextLine();
+                        Role newRole = new Role(role);
+                        user.setRole(newRole);
+
+                        System.out.println("Updated");
+                        break;
+                    case 6:
                         System.out.print("New Email : ");
                         user.setEmail(sc.nextLine());
                         System.out.println("Updated !");
                         break;
-                    case 6:
+                    case 7:
                         System.out.print("New password : ");
                         user.setPassword(sc.nextLine());
                         System.out.println("Updated !");
