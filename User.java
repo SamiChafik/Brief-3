@@ -43,7 +43,7 @@ public class User extends Person {
                 "User phone : " + tel + '\n' +
                 "Email : " + email + '\n' +
                 "password : " + password + '\n' +
-                "Role : " + role.getRole() + '\n'
+                "Role : " + role.getRole()
                 ;
     }
 }
