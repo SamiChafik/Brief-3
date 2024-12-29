@@ -9,17 +9,17 @@ public class App {
 
     public void menu(){
         System.out.println(color.red+color.bold+"════════  Menu  ════════"+color.white);
-        System.out.println("1 - create a user");
-        System.out.println("2 - display users");
-        System.out.println("3 - find a user");
-        System.out.println("4 - modify a user");
-        System.out.println("5 - delete a user");
-        System.out.println("0 - exit");
+        System.out.println("1 - Create a user");
+        System.out.println("2 - Display users");
+        System.out.println("3 - Find a user");
+        System.out.println("4 - Modify a user");
+        System.out.println("5 - Delete a user");
+        System.out.println(color.green+"0 - Exit");
         System.out.println(color.red+"════════ ══════ ════════"+color.white);
     }
 
     public short choice(){
-        System.out.print(color.blue+"=> "+color.white);
+        System.out.print(color.blue+color.bold+"=> "+color.white);
         Scanner sc = new Scanner(System.in);
         return sc.nextShort();
     }
@@ -53,14 +53,15 @@ public class App {
     public void show(){
 
         if (users.isEmpty()){
-            System.out.println("there are no users !");
+            System.out.println(color.red+"there are no users !"+color.white);
             return;
         }
 
-        System.out.println("== List of users ==");
+        System.out.println(color.yellow+"== List of users =="+color.white);
         for (User user : users){
-            System.out.println("______________");
+            System.out.println(color.green+"______________"+color.white);
             System.out.println(user);
+            System.out.println(color.green+"______________"+color.white);
 
         }
     }
@@ -68,13 +69,13 @@ public class App {
     public void find(){
 
         if (users.isEmpty()){
-            System.out.print("there are no users !");
+            System.out.println(color.red+"there are no users !"+color.white);
             return;
         }
 
         ArrayList<User> found = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("find a user (by ID,personal/family Name,phone number,Email) : ");
+        System.out.println(color.cyan+"find a user (by ID,personal/family Name,phone number,Email) : "+color.white);
         String search = sc.nextLine();
 
         for (User user : users){
@@ -86,9 +87,9 @@ public class App {
         }
 
         if (found.isEmpty()) {
-            System.out.println("No users found !");
+            System.out.println(color.red+"No users found !"+color.white);
         }else {
-            System.out.println("== Users found ==");
+            System.out.println(color.green+"== Users found =="+color.white);
             for (User user : found){
                 System.out.println(user);
             }
@@ -98,21 +99,21 @@ public class App {
     public void modify(){
 
         if (users.isEmpty()){
-            System.out.print("there are no users !");
+            System.out.println(color.red+"there are no users !"+color.white);
             return;
         }
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Entre user ID you want to modify : ");
+        System.out.print(color.cyan+"Entre user ID you want to modify : "+color.white);
         String id = sc.nextLine();
 
 
         for(User user : users) {
             if (id.equals(user.getID())) {
-                System.out.println("== User found ==");
+                System.out.println(color.green+"== User found =="+color.white);
                 System.out.println(user);
 
-                System.out.println("what do you want to modify :");
+                System.out.println(color.cyan+"what do you want to modify :"+color.white);
                 System.out.println("1 - Personal Name");
                 System.out.println("2 - Family Name");
                 System.out.println("3 - Age");
@@ -120,8 +121,8 @@ public class App {
                 System.out.println("5 - Role");
                 System.out.println("6 - Email");
                 System.out.println("7 - Password");
-                System.out.println("0 - Return");
-                System.out.print("=> ");
+                System.out.println(color.green+"0 - Return");
+                System.out.print(color.blue+"=> "+color.white);
                 int ch = sc.nextShort();
                 sc.nextLine();
 
@@ -129,22 +130,22 @@ public class App {
                     case 1:
                         System.out.print("New personal name : ");
                         user.setP_Name(sc.nextLine());
-                        System.out.println("Updated !");
+                        System.out.println(color.green+"Updated !"+color.white);
                         break;
                     case 2:
                         System.out.print("New Family name : ");
                         user.setF_Name(sc.nextLine());
-                        System.out.println("Updated !");
+                        System.out.println(color.green+"Updated !"+color.white);
                         break;
                     case 3:
                         System.out.print("New age : ");
                         user.setAge(sc.nextInt());
-                        System.out.println("Updated !");
+                        System.out.println(color.green+"Updated !"+color.white);
                         break;
                     case 4:
                         System.out.print("New phone number : ");
                         user.setTel(sc.nextLine());
-                        System.out.println("Updated !");
+                        System.out.println(color.green+"Updated !"+color.white);
                         break;
                     case 5 :
                         System.out.print("New Role : ");
@@ -152,33 +153,63 @@ public class App {
                         Role newRole = new Role(role);
                         user.setRole(newRole);
 
-                        System.out.println("Updated");
+                        System.out.println(color.green+"Updated !"+color.white);
                         break;
                     case 6:
                         System.out.print("New Email : ");
                         user.setEmail(sc.nextLine());
-                        System.out.println("Updated !");
+                        System.out.println(color.green+"Updated !"+color.white);
                         break;
                     case 7:
                         System.out.print("New password : ");
                         user.setPassword(sc.nextLine());
-                        System.out.println("Updated !");
+                        System.out.println(color.green+"Updated !"+color.white);
                         break;
                     case 0:
                         break;
                 }
-            } else System.out.println("User doesnt exist !");
+            } else System.out.println(color.red+"User doesnt exist !"+color.white);
         }
     }
 
     public void delete(){
 
         if (users.isEmpty()){
-            System.out.println("there are no users !");
+            System.out.println(color.red+"there are no users !"+color.white);
             return;
         }
-        users.clear();
-        System.out.println("all users are deleted !");
+        boolean exit = true;
+        while (exit) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("1 - Delete all users");
+            System.out.println("2 - Delete a specific user");
+            System.out.println(color.green + "0 - Return");
+            System.out.print(color.blue + "=> " + color.white);
+            int ch = sc.nextInt();
+            sc.nextLine();
+            switch (ch) {
+                case 1:
+                    users.clear();
+                    System.out.println(color.green + "All users are deleted !" + color.white);
+                    exit = false;
+                    break;
+                case 2:
+                    System.out.print(color.cyan+"Enter the user ID you want to delete : "+color.white);
+                    String id = sc.nextLine();
+                    for (int i = 0; i < users.size(); i++) {
+                        if (users.get(i).ID.equals(id)) {
+                            users.remove(i);
+                            System.out.println(color.green + "User deleted successfully" + color.white);
+                        }
+                        exit = false;
+                    }
+                    break;
+                case 0:
+                    exit = false;
+                    break;
+                default:
+                    System.out.println(color.red+"Invalid choice try again !"+color.white);
+            }
+        }
     }
-
 }
